@@ -1,30 +1,46 @@
-# comment faire tourner le docker pour la base postgres
+## Projet Les Loups - L'Utilisation de Docker
+# Présentation rapide
+Ce projet utilise Docker pour lancer plusieurs services :
 
-voici les commandes qu’il faut taper dans le terminal pour lancer le docker et avoir la base les_loups_db qui marche
+une base de donnée PostgreSQL
 
-faut d’abord aller dans le dossier docker sinon ca peut pas fonctionner
+pgAdmin pour voir la base
 
-on tape :
-cd docker (cette commande elle va lancer le docker et executer tous les fichiers sql automatiquement ) 
+un serveur HTTP
+
+un serveur TCP
+
+un script pour insérer des données 
+
+Il faut avoir Docker et Docker Compose d’installer sur ton ordi.
+Vérifie avec les commandes suivantes :
+
+docker -v
+docker-compose -v
 
 
+# Lancer les services
+Pour démarrer tous les services, va à la racine du projet (là ou y'a le fichier docker-compose.yml) et lance :
 
-docker-compose up --build (Cette commande vas installer postgres (si c’est pas deja fait)
+docker-compose up --build
 
 
+# Une fois que tout est lancé :
 
-créer la base les_loups_db
+PostgreSQL est dispo sur le port 5432 (user: loupuser, mdp: louppass, db: lesloups)
 
-executer tous les fichiers sql qui sont dans le dossier init
+pgAdmin est dispo sur http://localhost:5055
+(login: admin@loups.com, mdp: admin)
 
-infos de connexion a la bdd
-host : localhost
+Serveur HTTP tourne sur http://localhost:5000
 
-port : 5432
+Serveur TCP écoute sur le port 6000
 
-user : postgres
+# Seed
+Le service seed sert juste à insérer des données de test dans la base.
+Il s'execute automatiquement au lancement, tu peux aussi le relancer comme ça :
 
-mot de passe : xxx (optionnel)
+docker-compose run seed
 
-base : les_loups_db
+
 
