@@ -24,7 +24,7 @@ port : 5432
 
 user : postgres
 
-mot de passe : xxx
+mot de passe : xxx (optionnel)
 
 base : les_loups_db
 
